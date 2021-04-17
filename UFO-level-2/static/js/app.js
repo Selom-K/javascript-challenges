@@ -39,3 +39,17 @@ button.on("click", function(event) {
   
   var filteredData = tableData;
   var inputId = document.getElementsByClassName("form-control");
+
+  // Input fields
+  for (var i = 0; i < inputId.length; i++) {
+	
+	var idName = inputId[i].id;
+	var field = d3.select("#" + idName).property("value");
+	
+
+	if (field.trim() !== "") {
+	  var filteredData = filteredData.filter(ufoEvents =>
+		ufoEvents[idName].toUpperCase().trim() ===
+		field.toUpperCase().trim());
+	};
+  };
