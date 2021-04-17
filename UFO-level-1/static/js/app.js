@@ -16,3 +16,10 @@ function tableDisplay(ufoEvents) {
       });
     });
   };
+
+  // Remove data from the table
+  function deleteTbody() {
+    d3.select("tbody")
+      .selectAll("tr").remove()
+      .selectAll("td").remove();
+  };
