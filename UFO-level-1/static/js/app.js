@@ -23,3 +23,7 @@ function tableDisplay(ufoEvents) {
       .selectAll("tr").remove()
       .selectAll("td").remove();
   };
+
+  // Show UFO Events
+  console.log(tableData);
+  tableDisplay(tableData);
