@@ -27,3 +27,15 @@ function deleteTbody() {
   // Show UFO Events
   console.log(tableData);
   tableDisplay(tableData);
+
+  // Filtering
+var button = d3.select("#filter-btn");
+
+// Display
+button.on("click", function(event) {
+  
+  d3.event.preventDefault();
+  deleteTbody();
+  
+  var filteredData = tableData;
+  var inputId = document.getElementsByClassName("form-control");
