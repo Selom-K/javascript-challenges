@@ -53,3 +53,17 @@ button.on("click", function(event) {
 		field.toUpperCase().trim());
 	};
   };
+
+  // If there is no record, display following message
+  if (filteredData.length == 0) {
+    d3.select("tbody")
+      .append("tr")
+      .append("td")
+        .attr("colspan", 7)
+        .html("<h4>No Records to Show</h4>");
+  };
+  
+  // Show table records
+  console.log(filteredData);
+  tableDisplay(filteredData);
+});
