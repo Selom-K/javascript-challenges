@@ -27,3 +27,33 @@ function tableDisplay(ufoEvents) {
   // Show UFO Events
   console.log(tableData);
   tableDisplay(tableData);
+
+  // Filter button
+  var button = d3.select("#filter-btn");
+
+  // Display Events
+  button.on("click", function(event) {
+    d3.event.preventDefault();
+    deleteTbody();
+    var dateInput = d3.select("#datetime").property("value");
+    
+    if (dateInput.trim() === "" ) {
+      var filteredData = tableData;
+    } else {  
+      var filteredData = tableData.filter(ufoEvents => 
+        ufoEvents.datetime === dateInput.trim());
+    };
+
+    // If there is no record, display message
+    if (filteredData.length == 0) {
+        d3.select("tbody")
+          .append("tr")
+          .append("td")
+            .attr("colspan", 7)
+            .html("<h4>No Records</h4>");
+      };
+
+      // Show table records
+      console.log(filteredData);
+    tableDisplay(filteredData);
+  });
